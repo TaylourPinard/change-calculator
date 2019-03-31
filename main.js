@@ -14,7 +14,6 @@ $(document).ready( function(){
         var tendered = amountReceived.value;
         var changeDue = tendered - total;
         changeDue = Math.round(changeDue * 100) / 100;
-        console.log(changeDue);
         if (changeDue < 0){
             alert("not enough tender to complete sale");
         }
@@ -27,13 +26,10 @@ $(document).ready( function(){
     function calculateChange(changeDue){
         change[0] = Math.floor(changeDue / 1);
         changeDue -= change[0];
-        console.log(changeDue);
         change[1] = Math.floor(changeDue / 0.25);
         changeDue -= change[1] * 0.25;
-        console.log(changeDue);
         change[2] = Math.floor(changeDue / 0.1);
         changeDue -= change[2] * 0.1;
-        console.log(changeDue);
         change[3] = Math.floor(changeDue / 0.05);
         changeDue -= change[3] * 0.05;
         change[4] = Math.round(changeDue * 100);
@@ -42,7 +38,6 @@ $(document).ready( function(){
             change[3] = 1;
         }
         changeDue = 0;
-        console.log(changeDue);
         return change;
     }
 
