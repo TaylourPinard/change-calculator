@@ -36,8 +36,11 @@ $(document).ready( function(){
         console.log(changeDue);
         change[3] = Math.floor(changeDue / 0.05);
         changeDue -= change[3] * 0.05;
-        console.log(changeDue);
         change[4] = Math.round(changeDue * 100);
+        if(change[4] == 5){
+            change[4] = 0;
+            change[3] = 1;
+        }
         changeDue = 0;
         console.log(changeDue);
         return change;
