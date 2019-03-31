@@ -1,6 +1,6 @@
 $(document).ready( function(){
     var amountDue = document.getElementById('amount-due');
-    var amountRecived = document.getElementById('amount-recieved');
+    var amountReceived = document.getElementById('amount-received');
     const calculateButton = document.getElementById('calculate-change');
     const dollarsOutput = document.getElementById('dollars-output');
     const quartersOutput = document.getElementById('quarters-output');
@@ -10,15 +10,16 @@ $(document).ready( function(){
 
     var change = [0, 0, 0, 0, 0];
     calculateButton.addEventListener('click', function(){
-        amountDue = amountDue.value;
-        amountRecived = amountRecived.value;
-        if(amountRecived < amountDue){
-            alert("Not enough tender to complete sale");
+        var total = amountDue.value;
+        var tendered = amountReceived.value;
+        var changeDue = tendered - total;
+        changeDue = Math.round(changeDue * 100) / 100;
+        console.log(changeDue);
+        if (changeDue < 0){
+            alert("not enough tender to complete sale");
         }
         else {
             clearAnyPrevious();
-            var changeDue = amountRecived - amountDue;
-            console.log(changeDue);
             appendResults(calculateChange(changeDue));
         }
     });
@@ -26,14 +27,19 @@ $(document).ready( function(){
     function calculateChange(changeDue){
         change[0] = Math.floor(changeDue / 1);
         changeDue -= change[0];
+        console.log(changeDue);
         change[1] = Math.floor(changeDue / 0.25);
         changeDue -= change[1] * 0.25;
+        console.log(changeDue);
         change[2] = Math.floor(changeDue / 0.1);
         changeDue -= change[2] * 0.1;
+        console.log(changeDue);
         change[3] = Math.floor(changeDue / 0.05);
         changeDue -= change[3] * 0.05;
-        change[4] = Math.floor(changeDue / 0.01);
-        changeDue -= change[4] * 0.01;
+        console.log(changeDue);
+        change[4] = Math.round(changeDue * 100);
+        changeDue = 0;
+        console.log(changeDue);
         return change;
     }
 
@@ -46,11 +52,11 @@ $(document).ready( function(){
     }
 
     function clearAnyPrevious(){
-        change = [0, 0, 0, 0, 0];
-        document.getElementById('dollars-output').innerHTML = "";
-        document.getElementById('quarters-output').innerHTML = "";
-        document.getElementById('dimes-output').innerHTML = "";
-        document.getElementById('nickels-output').innerHTML = "";
-        document.getElementById('pennies-output').innerHTML = "";
+        change.values = [0, 0, 0, 0, 0];
+        dollarsOutput.innerHTML = "";
+        quartersOutput.innerHTML = "";
+        dimesOutput.innerHTML = "";
+        nickelsOutput.innerHTML = "";
+        penniesOutput.innerHTML = "";
     }
 });
