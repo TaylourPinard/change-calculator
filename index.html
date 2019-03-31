@@ -7,20 +7,24 @@
   </head>
   <body>
     <!-- Write your markup here -->
-    <h1>Change Calculator</h1>
-    <input type="text" id="amount-due" required><label for="amount-due">What is the amount due for the sale?</label></input>
-    <input type="text" id="amount-received" required><label for="amount-received">How much has the customer given you?</label></input>
-    <button id="calculate-change">Calculate</button>
-    <h1>Dollars</h1>
-    <p id="dollars-output">0</p>
-    <h1>Quarters</h1>
-    <p id="quarters-output">0</p>
-    <h1>Dimes</h1>
-    <p id="dimes-output">0</p>
-    <h1>Nickels</h1>
-    <p id="nickels-output">0</p>
-    <h1>Pennies</h1>
-    <p id="pennies-output">0</p>
+    <div id="input-div">
+      <h1>Change Calculator</h1>
+      <input type="text" id="amount-due" required><label for="amount-due">What is the amount due for the sale?</label></input>
+      <input type="text" id="amount-received" required><label for="amount-received">How much has the customer given you?</label></input>
+      <button id="calculate-change">Calculate</button>
+    </div>
+    <div id="output-div">
+      <h1>Dollars</h1>
+      <p id="dollars-output">0</p>
+      <h1>Quarters</h1>
+      <p id="quarters-output">0</p>
+      <h1>Dimes</h1>
+      <p id="dimes-output">0</p>
+      <h1>Nickels</h1>
+      <p id="nickels-output">0</p>
+      <h1>Pennies</h1>
+      <p id="pennies-output">0</p>
+    </div>
     <!-- Don't forget to add your <script> tag here -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="main.js" charset="utf-8"></script>
